@@ -1,0 +1,27 @@
+<div *ngIf="movie" class="back position-absolute w-100 vh-100" [ngStyle]="{
+    background:
+        'url(' +
+        posterPrefix +
+        movie.backdrop_path +
+        ') no-repeat center center/ cover fixed'
+}"></div>
+<section class="details" *ngIf="movie">
+<div class="container">
+    <div class="row py-4 align-items-center">
+        <div class="col-md-4">
+            <div class="movie_card overflow-hidden rounded-4">
+                <div class="movie-img">
+                    <img class="w-100 img-fluid" [src]="posterPrefix + movie.poster_path"
+                        alt="Movie Poster" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 mt-2">
+            <div class="movie-text text-white">
+                <h3 class="fs-1">{{ movie.title }}</h3>
+                <span class="rating d-flex">{{movie.vote_average | numberfixed}} / 10</span>
+                <p class="fs-5 mt-4">{{ movie.overview}}</p>
+            </div>
+        </div>
+    </div>
+

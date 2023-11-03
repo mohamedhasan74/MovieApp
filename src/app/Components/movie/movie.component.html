@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="container py-4">
+    <div class="input-group mb-3 w-75 mx-auto">
+        <span class="input-group-text" id="basic-addon1">
+            <img src="assets/images/searchIcon.png">
+        </span>
+        <input [(ngModel)]="filmName" (input)="do($event)" type="text" class="form-control"
+            placeholder="What Are You Looking For?" aria-label="search" aria-describedby="basic-addon1">
+    </div>
+    <div *ngIf="notFoundItem" class="vh-100 py-5 h1 text-center" >No Found Movies</div>
+    <div class="row">
+        <div *ngFor="let movie of allMovies" class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+            <div class="cursor-pointer overflow-hidden position-relative text-white movie-container rounded-2">
+                <img [src]="posterPrefix + movie.poster_path" class="w-100 transition-1s">
+                <div
+                    class="position-absolute movie-overlay p-3 opacity-0 d-flex flex-column justify-content-between top-0 start-0 h-100 transition-1s">
+                    <h4>{{movie.title}}</h4>
+                    <p>{{movie.overview | textcut : 30}}</p>
+                    <a routerLink="/moviedetails/{{movie.id}}" class="btn btn-primary border-0">Show Details</a>
+                </div>
+                <div class="movie-rating position-absolute top-0 end-0 rounded-2 p-2 opacity-0 transition-1s">
+                    {{movie.vote_average }} / 10</div>
+            </div>
+        </div>
+    </div>
+</div>

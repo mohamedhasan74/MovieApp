@@ -1,0 +1,10 @@
+.back {
+	z-index: -100;
+	filter: blur(10px);
+}
+.movie_card {
+	border: 1px solid #000;
+}
+.movie-text {
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}

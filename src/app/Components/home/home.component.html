@@ -1,0 +1,4 @@
+<app-movie [allMovies]="allMovies | paginate: { itemsPerPage: 20, currentPage: p, totalItems: 822435 }"></app-movie>
+<div class="d-flex justify-content-center">
+    <pagination-controls (pageChange)="done($event)"></pagination-controls>
+</div>
